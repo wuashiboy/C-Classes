@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication1
-{
-    public class Bank
+namespace Classes_Refactoring
+    {
+    public class Structures
     {
         public string Name { get; set; }
         public string BldType { get; set; }
-        public string ConstructionMaterial { get; set; }
+        public string ContrucitonMaterial { get; set; }
         public int NumberOfRoom { get; set; }
         public double Height { get; set; }
         public double Width { get; set; }
         public double Length { get; set; }
-        public double squarefootage
+        public double Squarefootage
         {
             get { return Length * Width; }
         }
@@ -26,27 +26,19 @@ namespace ConsoleApplication1
         {
             get { return Length * Width * Height; }
         }
+
         public string Address1 { get; set; }
         public string Address2 { get; set; }
-        public string City { get; set; }
+        public string City { get; set;}
         public string State { get; set; }
         public int Zip { get; set; }
-
         public string FullAddress
         {
             get { return ($" {Address1}, {Address2},  {City}, {State}, {Zip}"); }
         }
 
-        public int Occupants
+        public Structures()
         {
-            get { return Occupants; }
-
-        }
-        private double AmountOfMoney { get; set; }
-
-        public Bank()
-        {
-
             this.Name = Name;
             this.BldType = BldType;
             this.NumberOfRoom = 0;
@@ -60,30 +52,15 @@ namespace ConsoleApplication1
             this.City = City;
             this.State = State;
             this.Zip = Zip;
-            this.AmountOfMoney = 0;
-            
-
-
         }
-        public static int IncreaseOccupants(int CurrentOccupants)
+        public int IncreaseOccupants(int CurrentOccupants)
         {
             return CurrentOccupants++;
         }
 
-        public static int DecreaseOccupants(int CurrentOccupants)
+        public int DecreaseOccupants(int CurrentOccupants)
         {
             return CurrentOccupants--;
-        }
-
-        
-        public static double DepositeMoney(double AmountOfMoney, double balance)
-        {
-            return balance + AmountOfMoney;
-        }
-
-        public static double WithdrawMoney(double AmountOfMoney, double balance)
-        {
-            return balance - AmountOfMoney;
         }
     }
 
